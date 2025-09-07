@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ETUB Cider - Premium Äppelcider</title>
-    <meta name="description" content="Handgjord premium äppelcider från de finaste äpplena. Upplev konsten av traditionell cidertillverkning.">
+    <title>Om Oss - ETUB Cider</title>
+    <meta name="description" content="Lär dig om ETUB Ciders historia, vår passion för traditionell cidertillverkning och vårt engagemang för kvalitetshantverk.">
     
     <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="ETUB Cider">
-    <meta property="og:description" content="Premium äppelcider från de finaste äpplena">
+    <meta property="og:title" content="Om ETUB Cider">
+    <meta property="og:description" content="Upptäck vår historia och passion för traditionell cidertillverkning">
     <meta property="og:type" content="website">
     
     <style>
@@ -234,146 +234,42 @@
             transition: 0.3s;
         }
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background-image: url('../images/hero-background.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(135deg, var(--light) 0%, #ffffff 100%);
+            padding: 100px 0;
             text-align: center;
-            color: var(--dark);
-            position: relative;
         }
 
-        .hero.no-image {
-            background: linear-gradient(135deg, #e8f4f8 0%, #ffffff 50%, #f0f8ff 100%);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(1px);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.5s forwards;
-            color: var(--dark);
-            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
-            background: rgba(255, 255, 255, 0.2);
-            padding: 30px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .hero-content p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.7s forwards;
-            color: var(--text);
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
-            background: rgba(255, 255, 255, 0.15);
-            padding: 20px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.9s forwards;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background: var(--primary);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
-        }
-
-        .cta-button:hover {
-            background: var(--secondary);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
-        }
-
-        .cta-button.secondary {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .cta-button.secondary:hover {
-            background: var(--primary);
-            color: var(--white);
-        }
-
-        /* Quick Info Section */
-        .quick-info {
-            background: var(--light);
-            padding: 60px 0;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .info-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .info-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .info-card .icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .info-card h3 {
+        .page-hero h1 {
+            font-size: 3.5rem;
             color: var(--primary);
             margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.2s forwards;
         }
 
-        /* Featured Products */
-        .featured-products {
+        .page-hero p {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+
+        /* About Sections */
+        .about-section {
             padding: 80px 0;
+        }
+
+        .about-section:nth-child(even) {
+            background: var(--light);
         }
 
         .section-title {
@@ -395,37 +291,194 @@
             background: var(--accent);
         }
 
-        .products-preview {
+        .about-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
         }
 
-        .product-card {
-            background: var(--white);
-            border-radius: 20px;
+        .about-content.reverse {
+            direction: rtl;
+        }
+
+        .about-content.reverse > * {
+            direction: ltr;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-text h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-box {
+            background: var(--primary);
+            color: var(--white);
             padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(139, 69, 19, 0.1);
         }
 
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        .highlight-box h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
         }
 
-        .product-icon {
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(139, 69, 19, 0.2);
+        }
+
+        .about-image.brewing {
+            background-image: url('../images/brewing-process.jpg');
+        }
+
+        .about-image.orchard {
+            background-image: url('../images/orchard.jpg');
+        }
+
+        .about-image.team {
+            background-image: url('../images/team.jpg');
+        }
+
+        .about-image.no-image {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .about-image.brewing.no-image::before { content: '⚗️'; }
+        .about-image.orchard.no-image::before { content: '🌳'; }
+        .about-image.team.no-image::before { content: '👥'; }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-card .icon {
             font-size: 3rem;
             margin-bottom: 1rem;
         }
 
-        .product-card h3 {
+        .value-card h4 {
             color: var(--primary);
             margin-bottom: 1rem;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--accent);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 30px;
+            position: relative;
+            margin: 50px 0;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            align-self: flex-end;
+            justify-content: flex-start;
+            padding-left: 30px;
+            padding-right: 0;
+            left: 50%;
+        }
+
+        .timeline-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-left-color: var(--white);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            left: -10px;
+            right: auto;
+            border-left-color: transparent;
+            border-right-color: var(--white);
+        }
+
+        .timeline-year {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--white);
+            padding: 10px 15px;
+            border-radius: 25px;
+            font-weight: bold;
+            top: 15px;
+        }
+
+        .timeline-content h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
         }
 
         /* Newsletter */
@@ -558,19 +611,45 @@
                 display: flex;
             }
 
-            .hero-content h1 {
+            .page-hero h1 {
                 font-size: 2.5rem;
-                padding: 20px;
             }
 
-            .hero-content p {
-                font-size: 1.2rem;
-                padding: 15px;
+            .about-content,
+            .about-content.reverse {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                direction: ltr;
             }
 
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 0;
+                left: 0;
+            }
+
+            .timeline-item:nth-child(odd) {
+                left: 0;
+                padding-left: 50px;
+                padding-right: 0;
+            }
+
+            .timeline-content::before,
+            .timeline-item:nth-child(odd) .timeline-content::before {
+                left: -10px;
+                right: auto;
+                border-left-color: transparent;
+                border-right-color: var(--white);
+            }
+
+            .timeline-year {
+                left: 20px;
+                transform: none;
             }
 
             .newsletter-form {
@@ -608,8 +687,8 @@
             
             <div class="nav-center">
                 <ul class="nav-links">
-                    <li><a href="index.html" class="active">Hem</a></li>
-                    <li><a href="about.html">Om Oss</a></li>
+                    <li><a href="index.html">Hem</a></li>
+                    <li><a href="about.html" class="active">Om Oss</a></li>
                     <li><a href="products.html">Produkter</a></li>
                     <li><a href="gallery.html">Galleri</a></li>
                     <li><a href="contact.html">Kontakt</a></li>
@@ -617,11 +696,11 @@
             </div>
 
             <div class="language-switcher">
-                <a href="../index.html">
+                <a href="../about.html">
                     <span class="flag uk"></span>
                     EN
                 </a>
-                <a href="index.html" class="active">
+                <a href="about.html" class="active">
                     <span class="flag sweden"></span>
                     SV
                 </a>
@@ -636,69 +715,122 @@
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>ETUB Premium Cider</h1>
-                <p>Tillverkad med passion, fulländad av naturen</p>
-                <div class="cta-buttons">
-                    <a href="products.html" class="cta-button">Våra Ciders</a>
-                    <a href="about.html" class="cta-button secondary">Vår Historia</a>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Vår Historia</h1>
+                <p>Upptäck passionen, traditionen och hantverket bakom varje flaska ETUB Cider</p>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="container">
+                <div class="about-content fade-in">
+                    <div class="about-text">
+                        <h3>Början</h3>
+                        <p>ETUB Cider föddes från en enkel övertygelse: att exceptionell cider kommer från exceptionella äpplen och orubblig hängivenhet till traditionellt hantverk. Vad som började som ett passionerat experiment med småskalig bryggning har utvecklats till en hyllning av äppelens arv och hantverkarnas excellens.</p>
+                        
+                        <p>Våra grundare upptäckte att den gamla konsten att tillverka cider, när den kombineras med moderna kvalitetsstandarder och innovativa smakprofiler, kunde skapa något verkligt extraordinärt. Varje flaska representerar vårt engagemang för att hedra traditionen samtidigt som vi omfamnar innovation.</p>
+
+                        <div class="highlight-box">
+                            <h4>"Varje äpple berättar en historia. Varje flaska fångar ett ögonblick i tiden."</h4>
+                            <p>- ETUB Grundare</p>
+                        </div>
+                    </div>
+                    <div class="about-image orchard fade-in"></div>
                 </div>
             </div>
         </section>
 
-        <section class="quick-info">
+        <section class="about-section">
             <div class="container">
-                <div class="info-grid">
-                    <div class="info-card fade-in">
+                <div class="about-content reverse fade-in">
+                    <div class="about-text">
+                        <h3>Vårt Hantverk</h3>
+                        <p>Traditionell cidertillverkning är både en konst och en vetenskap. Vi väljer noggrant ut premium äpplen från betrodda fruktträdgårdar och säkerställer att varje sort bidrar med sin unika karaktär till vår slutliga blandning. Vår jäsningsprocess respekterar traditionella tekniker samtidigt som den inkorporerar modern kvalitetskontroll.</p>
+                        
+                        <p>Från krossningen av det första äpplet till den slutliga tappningen övervakas varje steg med minutiös uppmärksamhet på detaljer. Vi tror att tålamod och precision är de hemliga ingredienserna som förvandlar enkel äppeljuice till extraordinär cider.</p>
+
+                        <p>Vårt småskaliga tillvägagångssätt gör det möjligt för oss att upprätthålla högsta kvalitetsstandarder samtidigt som vi experimenterar med säsongsbetonade smaker och innovativa kombinationer som överraskar och glädjer ciderentusiaster.</p>
+                    </div>
+                    <div class="about-image brewing fade-in"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="container">
+                <h2 class="section-title fade-in">Våra Värderingar</h2>
+                <div class="values-grid">
+                    <div class="value-card fade-in">
                         <div class="icon">🍎</div>
-                        <h3>Premium Äpplen</h3>
-                        <p>Utvalda från de finaste fruktträdgårdarna för exceptionell smak och kvalitet.</p>
+                        <h4>Kvalitet Först</h4>
+                        <p>Vi använder endast de finaste äpplena och upprätthåller rigorösa kvalitetsstandarder genom hela vår bryggprocess.</p>
                     </div>
-                    <div class="info-card fade-in">
+                    <div class="value-card fade-in">
+                        <div class="icon">🌱</div>
+                        <h4>Hållbarhet</h4>
+                        <p>Miljöansvar vägleder våra metoder, från fruktträdgårdspartnerskap till förpackningsval.</p>
+                    </div>
+                    <div class="value-card fade-in">
+                        <div class="icon">🤝</div>
+                        <h4>Gemenskap</h4>
+                        <p>Vi tror på att stödja lokala bönder, hantverkare och bygga förbindelser med vårt samhälle.</p>
+                    </div>
+                    <div class="value-card fade-in">
                         <div class="icon">⚗️</div>
-                        <h3>Traditionellt Hantverk</h3>
-                        <p>Tidstestade jäsningstekniker perfektionerade över generationer.</p>
-                    </div>
-                    <div class="info-card fade-in">
-                        <div class="icon">🌿</div>
-                        <h3>Naturlig Process</h3>
-                        <p>Inga konstgjorda tillsatser, bara ren äppelgodhet och noggrann tillverkning.</p>
-                    </div>
-                    <div class="info-card fade-in">
-                        <div class="icon">🏆</div>
-                        <h3>Prisbelönt</h3>
-                        <p>Erkänd för excellens i smak och kvalitet av ciderentusiaster.</p>
+                        <h4>Innovation</h4>
+                        <p>Samtidigt som vi respekterar traditionen utforskar vi kontinuerligt nya smaker och bryggtekniker.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="featured-products">
+        <section class="about-section">
             <div class="container">
-                <h2 class="section-title fade-in">Utvalda Ciders</h2>
-                <div class="products-preview">
-                    <div class="product-card fade-in">
-                        <div class="product-icon">🍯</div>
-                        <h3>Heritage Dry</h3>
-                        <p>Vår flaggskeppscider med perfekt balans mellan syrlig och söt, gjord av ärvda äpplen.</p>
-                        <a href="products.html#heritage" style="color: var(--primary); text-decoration: none; font-weight: bold;">Läs Mer →</a>
+                <h2 class="section-title fade-in">Vår Resa</h2>
+                <div class="timeline">
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-year">2020</div>
+                        <div class="timeline-content">
+                            <h4>Idén</h4>
+                            <p>Första experimenten med traditionella cidertillverkningstekniker med lokalt odlade äpplen.</p>
+                        </div>
                     </div>
-                    <div class="product-card fade-in">
-                        <div class="product-icon">🌶️</div>
-                        <h3>Spiced Harvest</h3>
-                        <p>Säsongsfavorit infuserad med kanel, muskot och kryddnejlika för höstvärme.</p>
-                        <a href="products.html#spiced" style="color: var(--primary); text-decoration: none; font-weight: bold;">Läs Mer →</a>
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-year">2021</div>
+                        <div class="timeline-content">
+                            <h4>Första Satsen</h4>
+                            <p>Skapade framgångsrikt vår första kommersiella sats av Heritage Dry och fick överväldigande positiv feedback.</p>
+                        </div>
                     </div>
-                    <div class="product-card fade-in">
-                        <div class="product-icon">🫐</div>
-                        <h3>Berry Fusion</h3>
-                        <p>Innovativ blandning som kombinerar äppelcider med lokalt insamlade bär.</p>
-                        <a href="products.html#berry" style="color: var(--primary); text-decoration: none; font-weight: bold;">Läs Mer →</a>
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-year">2022</div>
+                        <div class="timeline-content">
+                            <h4>Expansion</h4>
+                            <p>Utökade vår produktlinje med säsongsvarianter och öppnade vårt första provningsrum.</p>
+                        </div>
                     </div>
-                </div>
-                <div style="text-align: center; margin-top: 3rem;">
-                    <a href="products.html" class="cta-button">Visa Alla Produkter</a>
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-content">
+                            <h4>Erkännande</h4>
+                            <p>Vann vår första regionala cidertävling och etablerade partnerskap med premiumrestauranger.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-content">
+                            <h4>Innovation</h4>
+                            <p>Lanserade vår Berry Fusion-linje och började experimentera med fatlagrade varianter.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-content">
+                            <h4>Framtiden</h4>
+                            <p>Fortsätter att tänja gränser samtidigt som vi förblir trogna våra hantverksrötter och samhällsvärderingar.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -720,6 +852,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Snabblänkar</h4>
+                    <a href="index.html">Hem</a>
                     <a href="about.html">Om Oss</a>
                     <a href="products.html">Våra Ciders</a>
                     <a href="gallery.html">Galleri</a>
@@ -750,11 +883,22 @@
     <script>
         // Image loading detection
         function checkImages() {
-            const heroImg = new Image();
-            heroImg.onerror = () => {
-                document.querySelector('.hero').classList.add('no-image');
-            };
-            heroImg.src = '../images/hero-background.jpg';
+            const images = [
+                { selector: '.about-image.orchard', fallback: 'orchard' },
+                { selector: '.about-image.brewing', fallback: 'brewing' },
+                { selector: '.about-image.team', fallback: 'team' }
+            ];
+            
+            images.forEach(img => {
+                const element = document.querySelector(img.selector);
+                if (element) {
+                    const testImage = new Image();
+                    testImage.onerror = () => {
+                        element.classList.add('no-image');
+                    };
+                    testImage.src = `../images/${img.fallback}.jpg`;
+                }
+            });
             
             const logoImg = document.querySelector('.logo-image');
             if (logoImg) {
