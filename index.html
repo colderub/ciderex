@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orchard Valley Cider Co. - Premium Craft Ciders</title>
-    <meta name="description" content="Handcrafted premium ciders made from locally sourced apples. Experience the art of traditional cider making.">
+    <title>BUTE Cider - Premium Craft Ciders</title>
+    <meta name="description" content="Handcrafted premium ciders made from the finest apples. Experience the art of traditional cider making.">
     
     <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Orchard Valley Cider Co.">
-    <meta property="og:description" content="Premium craft ciders made from locally sourced apples">
+    <meta property="og:title" content="BUTE Cider">
+    <meta property="og:description" content="Premium craft ciders made from the finest apples">
     <meta property="og:type" content="website">
     
     <style>
@@ -70,6 +70,30 @@
             font-weight: bold;
             color: var(--primary);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .logo-fallback {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: 2px solid var(--secondary);
+            display: none;
         }
 
         .nav-links {
@@ -122,15 +146,37 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(44, 24, 16, 0.4), rgba(44, 24, 16, 0.4)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23228B22" width="1200" height="800"/><circle fill="%2332CD32" cx="200" cy="150" r="80" opacity="0.3"/><circle fill="%23FF6347" cx="400" cy="200" r="60" opacity="0.4"/><circle fill="%23FFD700" cx="600" cy="180" r="70" opacity="0.3"/><circle fill="%23FF69B4" cx="800" cy="160" r="65" opacity="0.4"/><circle fill="%2387CEEB" cx="1000" cy="140" r="75" opacity="0.3"/><path d="M0 600 Q300 550 600 580 T1200 600 V800 H0 Z" fill="%238B4513" opacity="0.6"/></svg>');
+            background-image: url('./images/hero-background.jpg');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: var(--white);
+            color: var(--dark);
+            position: relative;
+        }
+
+        /* Fallback if image doesn't load */
+        .hero.no-image {
+            background: linear-gradient(135deg, #e8f4f8 0%, #ffffff 50%, #f0f8ff 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(1px);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
         .hero-content h1 {
@@ -138,6 +184,13 @@
             margin-bottom: 1rem;
             opacity: 0;
             animation: fadeInUp 1s ease 0.5s forwards;
+            color: var(--dark);
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .hero-content p {
@@ -145,6 +198,13 @@
             margin-bottom: 2rem;
             opacity: 0;
             animation: fadeInUp 1s ease 0.7s forwards;
+            color: var(--text);
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .cta-button {
@@ -211,20 +271,25 @@
         .about-image {
             width: 100%;
             height: 400px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            background-image: url('./images/about-image.jpg');
+            background-size: cover;
+            background-position: center;
             border-radius: 20px;
             position: relative;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(139, 69, 19, 0.2);
         }
 
-        .about-image::before {
-            content: '🍎';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        .about-image.no-image {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 4rem;
+        }
+
+        .about-image.no-image::before {
+            content: '🍎';
         }
 
         /* Products Section */
@@ -507,12 +572,33 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Debug styles - remove after testing */
+        .debug-info {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 9999;
+        }
     </style>
 </head>
 <body>
+    <div class="debug-info" id="debugInfo">
+        Image Status: Loading...
+    </div>
+
     <header>
         <nav class="container">
-            <a href="#" class="logo">🍎 Orchard Valley</a>
+            <a href="#" class="logo">
+                <img src="./images/logo.png" alt="BUTE Logo" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="logo-fallback">B</div>
+                BUTE
+            </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -531,8 +617,8 @@
     <main>
         <section id="home" class="hero">
             <div class="hero-content">
-                <h1>Craft Cider, Crafted with Love</h1>
-                <p>Premium handcrafted ciders made from the finest locally sourced apples</p>
+                <h1>BUTE Premium Cider</h1>
+                <p>Crafted with passion, perfected by nature</p>
                 <a href="#products" class="cta-button">Discover Our Ciders</a>
             </div>
         </section>
@@ -542,11 +628,11 @@
                 <h2 class="section-title fade-in">Our Story</h2>
                 <div class="about-content">
                     <div class="about-text fade-in">
-                        <p>Founded in 2018, Orchard Valley Cider Co. began as a passion project in our family orchard. What started as weekend experiments with traditional cider-making techniques has grown into a beloved local brewery.</p>
+                        <p>BUTE Cider represents the perfect marriage of traditional craft and modern innovation. Born from a passion for exceptional cider-making, we source only the finest apples to create our signature blends.</p>
                         
-                        <p>We believe in the art of slow fermentation and the magic that happens when you combine the finest local apples with time-honored brewing methods. Every bottle tells the story of our land, our dedication, and our love for exceptional cider.</p>
+                        <p>Our commitment to quality means every bottle is carefully crafted using time-honored fermentation techniques, resulting in ciders that capture the pure essence of the apple while delivering complexity and character.</p>
 
-                        <p>From our orchard to your table, we're committed to creating authentic, flavorful ciders that celebrate the natural sweetness and complexity of premium apples.</p>
+                        <p>From our carefully controlled fermentation process to the final bottle, BUTE Cider embodies our dedication to creating authentic, premium ciders that celebrate the natural beauty and flavor of exceptional fruit.</p>
                     </div>
                     <div class="about-image fade-in"></div>
                 </div>
@@ -583,8 +669,8 @@
 
         <section id="instagram" class="section instagram">
             <div class="container">
-                <h2 class="section-title fade-in">From Our Orchard</h2>
-                <p style="text-align: center; margin-bottom: 2rem; color: var(--text-light);">Follow us @orchardvalleycider for behind-the-scenes looks at our brewing process</p>
+                <h2 class="section-title fade-in">From Our Brewery</h2>
+                <p style="text-align: center; margin-bottom: 2rem; color: var(--text-light);">Follow us @butecider for behind-the-scenes looks at our brewing process</p>
                 <div class="instagram-grid">
                     <div class="instagram-post fade-in">🍎📸</div>
                     <div class="instagram-post fade-in">🍻✨</div>
@@ -602,19 +688,19 @@
                 <div class="contact-content">
                     <div class="contact-info fade-in">
                         <h3>📍 Location</h3>
-                        <p>123 Orchard Lane<br>Cider Valley, CV 12345</p>
+                        <p>123 Brewery Lane<br>Cider Valley, CV 12345</p>
                         
                         <h3>🕒 Hours</h3>
                         <p>Wednesday - Sunday: 12pm - 8pm<br>Monday & Tuesday: Closed</p>
                         
                         <h3>📞 Contact</h3>
-                        <p>Phone: (555) 123-CIDER<br>Email: hello@orchardvalley.com</p>
+                        <p>Email: hello@butecider.com</p>
                         
                         <h3>🎉 Events</h3>
                         <p>Live music every Friday<br>Cider tastings on weekends<br>Private events available</p>
                     </div>
                     
-                    <form class="contact-form fade-in">
+                    <div class="contact-form fade-in">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
@@ -628,7 +714,7 @@
                             <textarea id="message" name="message" rows="5" placeholder="Tell us about your event or ask us anything!"></textarea>
                         </div>
                         <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </section>
@@ -637,10 +723,10 @@
             <div class="container">
                 <h3>Stay Connected</h3>
                 <p>Get the latest news on new releases, events, and special offers</p>
-                <form class="newsletter-form">
+                <div class="newsletter-form">
                     <input type="email" placeholder="Enter your email" required>
                     <button type="submit">Subscribe</button>
-                </form>
+                </div>
             </div>
         </section>
     </main>
@@ -658,6 +744,50 @@
     </footer>
 
     <script>
+        // Image loading detection and debugging
+        function checkImages() {
+            const debugInfo = document.getElementById('debugInfo');
+            
+            // Test hero background
+            const heroImg = new Image();
+            heroImg.onload = () => {
+                debugInfo.innerHTML += '<br>✅ Hero background loaded';
+                console.log('Hero background loaded successfully');
+            };
+            heroImg.onerror = () => {
+                debugInfo.innerHTML += '<br>❌ Hero background failed';
+                document.querySelector('.hero').classList.add('no-image');
+                console.log('Hero background failed to load');
+            };
+            heroImg.src = './images/hero-background.jpg';
+            
+            // Test about image
+            const aboutImg = new Image();
+            aboutImg.onload = () => {
+                debugInfo.innerHTML += '<br>✅ About image loaded';
+                console.log('About image loaded successfully');
+            };
+            aboutImg.onerror = () => {
+                debugInfo.innerHTML += '<br>❌ About image failed';
+                document.querySelector('.about-image').classList.add('no-image');
+                console.log('About image failed to load');
+            };
+            aboutImg.src = './images/about-image.jpg';
+            
+            // Test logo
+            const logoImg = document.querySelector('.logo-image');
+            if (logoImg) {
+                logoImg.onerror = () => {
+                    debugInfo.innerHTML += '<br>❌ Logo failed';
+                    logoImg.style.display = 'none';
+                    document.querySelector('.logo-fallback').style.display = 'flex';
+                };
+                logoImg.onload = () => {
+                    debugInfo.innerHTML += '<br>✅ Logo loaded';
+                };
+            }
+        }
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -696,7 +826,7 @@
             }
         });
 
-        // Form submission (you'll need to implement backend or use a service like Formspree)
+        // Form submission
         document.querySelector('.contact-form').addEventListener('submit', (e) => {
             e.preventDefault();
             alert('Thank you for your message! We\'ll get back to you soon.');
@@ -707,15 +837,21 @@
             alert('Thank you for subscribing to our newsletter!');
         });
 
-        // Mobile menu toggle (basic implementation)
+        // Mobile menu toggle
         document.querySelector('.mobile-menu').addEventListener('click', () => {
             const navLinks = document.querySelector('.nav-links');
             navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
         });
 
+        // Instagram post click handlers
+        document.querySelectorAll('.instagram-post').forEach(post => {
+            post.addEventListener('click', () => {
+                window.open('https://instagram.com/butecider', '_blank');
+            });
+        });
+
         // Instagram API Integration
         async function loadInstagramPosts() {
-            // Replace with your actual access token from Facebook Developer Console
             const ACCESS_TOKEN = 'YOUR_ACCESS_TOKEN_HERE';
             
             try {
@@ -729,12 +865,9 @@
                 
                 if (data.data && data.data.length > 0) {
                     updateInstagramGrid(data.data);
-                } else {
-                    console.log('No Instagram posts found');
                 }
             } catch (error) {
-                console.error('Error loading Instagram posts:', error);
-                // Keep the placeholder content if API fails
+                console.log('Instagram API not configured yet');
             }
         }
 
@@ -748,68 +881,25 @@
                 postElement.style.backgroundImage = `url(${post.media_url})`;
                 postElement.style.backgroundSize = 'cover';
                 postElement.style.backgroundPosition = 'center';
-                postElement.style.cursor = 'pointer';
-                
-                // Add overlay with caption preview
-                const overlay = document.createElement('div');
-                overlay.style.cssText = `
-                    position: absolute;
-                    bottom: 0;
-                    left: 0;
-                    right: 0;
-                    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-                    color: white;
-                    padding: 20px 15px 15px;
-                    font-size: 0.9rem;
-                    opacity: 0;
-                    transition: opacity 0.3s ease;
-                `;
-                
-                if (post.caption) {
-                    const shortCaption = post.caption.length > 60 
-                        ? post.caption.substring(0, 60) + '...' 
-                        : post.caption;
-                    overlay.textContent = shortCaption;
-                }
-                
-                postElement.appendChild(overlay);
-                
-                // Show overlay on hover
-                postElement.addEventListener('mouseenter', () => {
-                    overlay.style.opacity = '1';
-                });
-                
-                postElement.addEventListener('mouseleave', () => {
-                    overlay.style.opacity = '0';
-                });
-                
-                // Click to open Instagram post
                 postElement.addEventListener('click', () => {
                     window.open(post.permalink, '_blank');
                 });
-                
                 grid.appendChild(postElement);
             });
         }
 
-        // Check if hero background image loads, if not use fallback
+        // Initialize everything when page loads
         document.addEventListener('DOMContentLoaded', () => {
-            const hero = document.querySelector('.hero');
-            const testImage = new Image();
-            testImage.onload = () => {
-                // Image loaded successfully, no need to do anything
-                console.log('Hero background loaded successfully');
-            };
-            testImage.onerror = () => {
-                // Image failed to load, ensure fallback is visible
-                hero.style.background = `linear-gradient(rgba(44, 24, 16, 0.3), rgba(44, 24, 16, 0.5)), 
-                    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="snow" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="20" cy="20" r="1.5" fill="white" opacity="0.8"/><circle cx="80" cy="40" r="1" fill="white" opacity="0.6"/><circle cx="40" cy="60" r="1.2" fill="white" opacity="0.7"/></pattern></defs><rect width="1200" height="800" fill="%23e8f4f8"/><rect width="1200" height="800" fill="url(%23snow)"/></svg>')`;
-                console.log('Using fallback background');
-            };
-            testImage.src = './images/hero-background.jpg';
-            
-            // Add a small delay to let other elements load first
+            checkImages();
             setTimeout(loadInstagramPosts, 1000);
+            
+            // Hide debug info after 10 seconds
+            setTimeout(() => {
+                const debugInfo = document.getElementById('debugInfo');
+                if (debugInfo) {
+                    debugInfo.style.display = 'none';
+                }
+            }, 10000);
         });
     </script>
 </body>
